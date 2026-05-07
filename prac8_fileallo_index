@@ -1,0 +1,11 @@
+# Indexed File Allocation - Small Version
+
+file_name = input("Enter file name: ")
+index_block = int(input("Enter index block: "))
+n = int(input("Enter number of blocks: "))
+
+blocks = []
+for i in range(n):
+    blocks.append(int(input(f"Block {i+1}: ")))
+
+print("Allocated blocks:", index_block, "->", " -> ".join(map(str, blocks)))
