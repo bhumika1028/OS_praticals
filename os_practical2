@@ -1,0 +1,9 @@
+import os
+print("\n Before fork process id", os.getpid())
+
+pid = os.fork()
+
+if pid == 0:
+    print("\n After fork, Child Process id=", os.getpid())
+else:
+    print("\n After fork, Parent process id=", os.getpid())
