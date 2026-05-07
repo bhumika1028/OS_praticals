@@ -1,0 +1,24 @@
+n = int(input("Enter number of processes: "))
+p = []
+for i in range(n):
+    at = int(input(f"P{i} Arrival Time: "))
+    bt = int(input(f"P{i} Burst Time: "))
+    pr = int(input(f"P{i} Priority: "))
+    p.append([i, at, bt, pr])
+p.sort(key=lambda x: (x[1], x[3]))
+time = 0
+total_tat = 0
+total_wt = 0
+print("\nPID\tAT\tBT\tPR\tCT\tTAT\tWT")
+for pid, at, bt, pr in p:
+    if time < at:
+        time = at
+    ct = time + bt
+    tat = ct - at
+    wt = tat - bt
+    time = ct
+    total_tat += tat
+    total_wt += wt
+    print(f"P{pid}\t{at}\t{bt}\t{pr}\t{ct}\t{tat}\t{wt}")
+print("\nAverage TAT =", total_tat/n)
+print("Average WT =", total_wt/n)
