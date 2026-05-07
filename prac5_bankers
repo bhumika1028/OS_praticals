@@ -1,0 +1,22 @@
+alloc = [[0,1,0],[2,0,0],[3,0,2]]
+maxm  = [[7,5,3],[3,2,2],[9,0,2]]
+avail = [3,3,2]
+
+need = [[maxm[i][j] - alloc[i][j] for j in range(3)] for i in range(3)]
+done = [0, 0, 0]
+safe = []
+
+while len(safe) < 3:
+    found = False
+    for i in range(3):
+        if not done[i] and all(need[i][j] <= avail[j] for j in range(3)):
+            for j in range(3):
+                avail[j] += alloc[i][j]
+            safe.append(i)
+            done[i] = 1
+            found = True
+    if not found:
+        print("Not Safe / Deadlock")
+        break
+else:
+    print("Safe Sequence:", safe)
