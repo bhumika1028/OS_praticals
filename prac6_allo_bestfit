@@ -1,0 +1,11 @@
+processes = list(map(int, input("Enter process sizes: ").split()))
+blocks = list(map(int, input("Enter block sizes: ").split()))
+
+for p in processes:
+    fit = [b for b in blocks if b >= p]
+    if fit:
+        b = min(fit)
+        print(p, "->", b)
+        blocks.remove(b)
+    else:
+        print(p, "-> Not Allocated")+
