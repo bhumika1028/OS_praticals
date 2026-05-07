@@ -1,0 +1,21 @@
+n = int(input("Processes: "))
+at = []
+bt = []
+
+for i in range(n):
+    at.append(int(input("AT: ")))
+    bt.append(int(input("BT: ")))
+
+ct = 0
+tat = 0
+wt = 0
+
+for i in range(n):
+    if ct < at[i]:
+        ct = at[i]
+    ct += bt[i]
+    tat += ct - at[i]
+    wt += ct - at[i] - bt[i]
+
+print("Avg TAT =", tat / n)
+print("Avg WT =", wt / n)
