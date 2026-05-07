@@ -1,0 +1,13 @@
+bt = list(map(int, input("Burst Times: ").split()))
+q = int(input("Time Quantum: "))
+
+rt = bt[:]
+t = 0
+
+while any(rt):
+    for i, x in enumerate(rt):
+        if x > 0:
+            t += min(x, q)
+            rt[i] = max(0, x - q)
+
+print("Total Time:", t)
