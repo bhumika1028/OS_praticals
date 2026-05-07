@@ -1,0 +1,13 @@
+# Linked File Allocation - Small Version
+
+file_name = input("Enter file name: ")
+start = int(input("Enter starting block: "))
+
+blocks = [start]
+while True:
+    nxt = int(input(f"Next block (-1 to stop){blocks[-1]}:  "))
+    if nxt == -1:
+        break
+    blocks.append(nxt)
+
+print("Allocated blocks:", " -> ".join(map(str, blocks)))
