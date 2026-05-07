@@ -1,0 +1,12 @@
+# FCFS Disk Scheduling - Simplest Version
+requests = list(map(int, input("Enter request queue: ").split()))
+head = int(input("Enter initial head position: "))
+total_seek = 0
+sequence = [head]
+# print(requests)
+for r in requests:
+    total_seek += abs(head - r)
+    head = r
+    sequence.append(r)
+print("Seek Sequence:", sequence)
+print("Total Seek Time:", total_seek)
