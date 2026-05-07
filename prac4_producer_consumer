@@ -1,0 +1,27 @@
+buffer = []
+size = int(input("Buffer size: "))
+empty = size
+full = 0
+item = 1
+while True:
+    ch = int(input("\n1. Produce \n2. Consume\n3. Exit: \n"))
+    if ch == 1:
+        if empty > 0:
+            buffer.append(item)
+            print("Produced", item)
+            item += 1
+            empty -= 1
+            full += 1
+        else:
+            print("Buffer Full")
+    elif ch == 2:
+        if full > 0:
+            x = buffer.pop(0)
+            print("Consumed", x)
+            full -= 1
+            empty += 1
+        else:
+            print("Buffer Empty")
+    elif ch == 3:
+        break
+    print("Buffer:", buffer)
